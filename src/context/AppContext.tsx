@@ -3,31 +3,32 @@ import { DefaultTheme, ThemeProvider } from 'styled-components';
 import { darkTheme } from '../styles/themes/dark';
 import { lightTheme } from '../styles/themes/light';
 
-type AppContextType = {
+interface AppContextType {
     theme: DefaultTheme;
     toggleTheme: () => void;
-};
+}
 
 const AppContext = createContext<AppContextType>({
     theme: lightTheme,
     toggleTheme: () => {},
 });
 
-type AppProviderProps = {
+interface AppProviderProps {
     children: ReactNode;
-};
+}
 
-const AppProvider = ({ children }: AppProviderProps) => {
-    const [theme, setTheme] = useState<DefaultTheme>(() =>
-        localStorage.getItem('theme') === 'dark' ? darkTheme : lightTheme,
-    );
+function AppProvider({ children }: AppProviderProps) {
+    const [theme, setTheme] = useState<DefaultTheme>(() => {
+        return localStorage.getItem('theme') === 'dark' ? darkTheme : lightTheme;
+    });
+
     const toggleTheme = useCallback(() => {
         const newTheme = theme === lightTheme ? darkTheme : lightTheme;
         setTheme(newTheme);
         localStorage.setItem('theme', newTheme === lightTheme ? 'light' : 'dark');
     }, [setTheme, theme]);
 
-    const appContextValue = {
+    const appContextValue: AppContextType = {
         theme,
         toggleTheme,
     };
@@ -37,8 +38,14 @@ const AppProvider = ({ children }: AppProviderProps) => {
             <ThemeProvider theme={theme}>{children}</ThemeProvider>
         </AppContext.Provider>
     );
-};
+}
 
-const useAppContext = () => useContext(AppContext);
+function useAppContext() {
+    const context = useContext(AppContext);
+    if (!context) {
+        throw new Error('useAppContext must be used within AppProvider');
+    }
+    return context;
+}
 
 export { AppProvider, useAppContext };
