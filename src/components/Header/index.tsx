@@ -1,15 +1,15 @@
-import ThemeToggle from '../ThemeToggle';
-import { HeaderContainer } from './styles';
+import { ThemeToggle } from '../ThemeToggle';
+import { HeaderContainer, Logo } from './styles';
 
-interface Props {
-    toggleTheme(): void;
-}
+import imageLogo from '../../assets/logo.svg';
+import { Avatar } from '../Avatar';
 
-export default function Header({ toggleTheme }: Props) {
+export function Header() {
     return (
         <HeaderContainer>
-            <h1>Header</h1>
-            <ThemeToggle toggleTheme={toggleTheme} />
+            <Logo src={imageLogo} alt="Invoice app logo" />
+            <ThemeToggle />
+            <Avatar />
         </HeaderContainer>
     );
 }

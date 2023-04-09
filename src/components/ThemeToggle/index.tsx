@@ -1,7 +1,15 @@
-interface Props {
-    toggleTheme(): void;
-}
+import { useAppContext } from '../../context/AppContext';
+import { darkTheme } from '../../styles/themes/dark';
 
-export default function ThemeToggle({ toggleTheme }: Props) {
-    return <button onClick={toggleTheme}>ButtomToggle</button>;
+import { MoonIcon } from './MoonIcon';
+import { SunIcon } from './SunIcon';
+import { ButtonContainer } from './styles';
+
+export function ThemeToggle() {
+    const { theme, toggleTheme } = useAppContext();
+    return (
+        <ButtonContainer onClick={toggleTheme}>
+            <span aria-hidden="true">{theme === darkTheme ? <MoonIcon /> : <SunIcon />}</span>
+        </ButtonContainer>
+    );
 }

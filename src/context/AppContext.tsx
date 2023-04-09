@@ -1,15 +1,44 @@
-import { createContext, ReactNode, useState } from 'react';
+import { ReactNode, createContext, useCallback, useContext, useState } from 'react';
+import { DefaultTheme, ThemeProvider } from 'styled-components';
+import { darkTheme } from '../styles/themes/dark';
+import { lightTheme } from '../styles/themes/light';
 
-type AppProviderProps = { children: ReactNode };
-type AppContext = {
-    theme: string;
-    setTheme: React.Dispatch<React.SetStateAction<string>>;
+type AppContextType = {
+    theme: DefaultTheme;
+    toggleTheme: () => void;
 };
 
-export const AppContext = createContext<AppContext>({} as AppContext);
+const AppContext = createContext<AppContextType>({
+    theme: lightTheme,
+    toggleTheme: () => {},
+});
 
-export function AppProvider({ children }: AppProviderProps) {
-    const [theme, setTheme] = useState<string>('light');
+type AppProviderProps = {
+    children: ReactNode;
+};
 
-    return <AppContext.Provider value={{ theme, setTheme }}>{children}</AppContext.Provider>;
-}
+const AppProvider = ({ children }: AppProviderProps) => {
+    const [theme, setTheme] = useState<DefaultTheme>(() =>
+        localStorage.getItem('theme') === 'dark' ? darkTheme : lightTheme,
+    );
+    const toggleTheme = useCallback(() => {
+        const newTheme = theme === lightTheme ? darkTheme : lightTheme;
+        setTheme(newTheme);
+        localStorage.setItem('theme', newTheme === lightTheme ? 'light' : 'dark');
+    }, [setTheme, theme]);
+
+    const appContextValue = {
+        theme,
+        toggleTheme,
+    };
+
+    return (
+        <AppContext.Provider value={appContextValue}>
+            <ThemeProvider theme={theme}>{children}</ThemeProvider>
+        </AppContext.Provider>
+    );
+};
+
+const useAppContext = () => useContext(AppContext);
+
+export { AppProvider, useAppContext };
