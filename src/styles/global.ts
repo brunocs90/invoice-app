@@ -7,6 +7,8 @@ export const GlobalStyle = createGlobalStyle`
         box-sizing:border-box
     }
     body {
+        margin: 0;
+        padding: 0;
         background: ${({ theme }) => theme.body.bg};
         font-family: Spartan, sans-serif;
         font-weight:500;

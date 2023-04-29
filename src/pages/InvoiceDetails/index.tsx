@@ -1,3 +1,3 @@
-export function InvoiceDetailsPage() {
+export function InvoiceDetails() {
     return <div>InvoiceDetailsPage</div>;
 }

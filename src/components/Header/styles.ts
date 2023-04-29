@@ -6,6 +6,7 @@ export const HeaderContainer = styled.header`
     display: flex;
     z-index: 8000;
     @media screen and (min-width: 1200px) {
+        border: solid purple;
         position: fixed;
         display: block;
         top: 0;
