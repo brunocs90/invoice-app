@@ -6,7 +6,7 @@ import { useAppContext } from './context/AppContext';
 import { GlobalStyle } from './styles/global';
 
 export const MainContainer = styled.div`
-    border: solid red;
+    /* border: solid red; */
     width: 100vw;
     height: 100vh;
 

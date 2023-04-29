@@ -13,7 +13,7 @@ export const ButtonContainer = styled.button`
     margin-right: 1.4375rem;
     align-self: center;
     color: ${({ theme }) => theme.themeToggleButton.color};
-    border: solid purple;
+    /* border: solid purple; */
     &:hover {
         color: ${({ theme }) => theme.themeToggleButton.hover.color};
     }

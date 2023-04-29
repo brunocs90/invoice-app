@@ -1,15 +1,16 @@
-import { HeaderContainer, Logo } from './styles';
+import { HeaderContainer } from './styles';
 
 import imageLogo from '../../assets/logo.svg';
-import { Avatar } from '../Avatar';
 import { ThemeToggle } from '../ThemeToggle';
 
 export function Header() {
     return (
         <HeaderContainer>
-            <Logo src={imageLogo} alt="Invoice app logo" />
-            <ThemeToggle />
-            <Avatar />
+            <img className="logo" src={imageLogo} alt="Invoice app logo" />
+            <div className="toggle-avatar">
+                <ThemeToggle />
+                <div>Avatar</div>
+            </div>
         </HeaderContainer>
     );
 }

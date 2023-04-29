@@ -12,12 +12,26 @@ export const HeaderContainer = styled.header`
         justify-content: left;
         align-items: flex-start;
     }
-`;
 
-export const Logo = styled.img`
-    width: 6.438rem;
-    height: 6.438rem;
-    @media screen and (min-width: ${DEVICE_SIZE.lg}) {
-        height: auto;
+    .logo {
+        display: flex;
+        width: 6.438rem;
+        height: 6.438rem;
+        border: solid blue;
+        @media screen and (min-width: ${DEVICE_SIZE.lg}) {
+            height: auto;
+        }
+    }
+    .toggle-avatar {
+        width: 100%;
+        display: flex;
+        justify-content: end;
+        align-items: center;
+        border: solid white;
+
+        @media screen and (min-width: ${DEVICE_SIZE.lg}) {
+            height: 100%;
+            flex-direction: column;
+        }
     }
 `;
