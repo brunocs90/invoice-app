@@ -1,8 +1,8 @@
-import { ThemeToggle } from '../ThemeToggle';
 import { HeaderContainer, Logo } from './styles';
 
 import imageLogo from '../../assets/logo.svg';
 import { Avatar } from '../Avatar';
+import { ThemeToggle } from '../ThemeToggle';
 
 export function Header() {
     return (

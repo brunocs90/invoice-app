@@ -73,6 +73,7 @@ export const darkTheme: DefaultTheme = {
                 color: '#ec5757',
             },
         },
+        borderColor: '#DFE3FA',
         error: {
             borderColor: '#ec5757',
         },

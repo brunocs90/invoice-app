@@ -1,28 +1,23 @@
 import styled from 'styled-components';
+import { DEVICE_SIZE } from '../../constants';
 
 export const HeaderContainer = styled.header`
-    position: relative;
-    background-color: ${({ theme }) => theme.header.bg};
+    border: solid yellow;
     display: flex;
-    z-index: 9999;
-    border: solid red;
-    @media screen and (min-width: 1200px) {
-        border: solid purple;
-        position: fixed;
-        display: block;
-        top: 0;
-        left: 0;
-        width: 6.4375rem;
-        height: 100%;
-        border-radius: 0 1.25rem 1.25rem 0;
+    flex-direction: row;
+    background-color: ${({ theme }) => theme.header.bg};
+
+    @media screen and (min-width: ${DEVICE_SIZE.lg}) {
+        flex-direction: column;
+        justify-content: left;
+        align-items: flex-start;
     }
 `;
 
 export const Logo = styled.img`
-    width: 4.5rem;
-    height: 4.5rem;
-    @media screen and (min-width: 1200px) {
-        width: 100%;
+    width: 6.438rem;
+    height: 6.438rem;
+    @media screen and (min-width: ${DEVICE_SIZE.lg}) {
         height: auto;
     }
 `;

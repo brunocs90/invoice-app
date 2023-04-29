@@ -9,7 +9,7 @@ export function ThemeToggle() {
     const { theme, toggleTheme } = useAppContext();
     return (
         <ButtonContainer onClick={toggleTheme}>
-            <span aria-hidden="true">{theme === darkTheme ? <MoonIcon /> : <SunIcon />}</span>
+            <span aria-hidden="true">{theme === darkTheme ? <SunIcon /> : <MoonIcon />}</span>
         </ButtonContainer>
     );
 }

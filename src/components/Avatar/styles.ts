@@ -6,6 +6,7 @@ export const AvatarContainer = styled.div`
     padding: 0 1.5rem;
     display: flex;
     border-left: 1px solid ${borderColor};
+    border: solid white;
 
     @media screen and (min-width: 1200px) {
         position: absolute;
@@ -16,6 +17,7 @@ export const AvatarContainer = styled.div`
         border-left: none;
         border-top: 1px solid ${borderColor};
         margin: 0;
+        border: solid pink;
     }
 `;
 

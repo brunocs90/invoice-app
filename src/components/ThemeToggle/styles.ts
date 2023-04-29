@@ -13,14 +13,11 @@ export const ButtonContainer = styled.button`
     margin-right: 1.4375rem;
     align-self: center;
     color: ${({ theme }) => theme.themeToggleButton.color};
+    border: solid purple;
     &:hover {
         color: ${({ theme }) => theme.themeToggleButton.hover.color};
     }
     @media screen and (min-width: 1200px) {
         margin: 0 auto;
-        position: absolute;
-        bottom: 117px;
-        left: 0;
-        right: 0;
     }
 `;
