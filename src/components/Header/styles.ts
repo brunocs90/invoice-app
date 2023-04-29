@@ -5,6 +5,7 @@ export const HeaderContainer = styled.header`
     background-color: ${({ theme }) => theme.header.bg};
     display: flex;
     z-index: 9999;
+    border: solid red;
     @media screen and (min-width: 1200px) {
         border: solid purple;
         position: fixed;

@@ -7,8 +7,4 @@ export const HomePageContainer = styled.div`
     justify-content: flex-start;
     margin-bottom: 2rem;
     width: 100%;
-    @media screen and (min-width: 1200px) {
-        width: calc(100% - 6.4375rem);
-        margin-left: 6.4375rem;
-    }
 `;
