@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { DEVICE_SIZE } from '../../constants';
 
 export const HeaderContainer = styled.header`
-    border: solid yellow;
+    /* border: solid yellow; */
     display: flex;
     flex-direction: row;
     background-color: ${({ theme }) => theme.header.bg};
@@ -11,13 +11,14 @@ export const HeaderContainer = styled.header`
         flex-direction: column;
         justify-content: left;
         align-items: flex-start;
+        border-radius: 0 20px 20px 0;
     }
 
     .logo {
         display: flex;
         width: 6.438rem;
         height: 6.438rem;
-        border: solid blue;
+        /* border: solid blue; */
         @media screen and (min-width: ${DEVICE_SIZE.lg}) {
             height: auto;
         }
@@ -27,7 +28,7 @@ export const HeaderContainer = styled.header`
         display: flex;
         justify-content: end;
         align-items: center;
-        border: solid white;
+        /* border: solid white; */
 
         @media screen and (min-width: ${DEVICE_SIZE.lg}) {
             height: 100%;
