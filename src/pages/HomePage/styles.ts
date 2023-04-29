@@ -6,5 +6,9 @@ export const HomePageContainer = styled.div`
     align-items: center;
     justify-content: flex-start;
     margin-bottom: 2rem;
-    flex-grow: 1;
+    width: 100%;
+    @media screen and (min-width: 1200px) {
+        width: calc(100% - 6.4375rem);
+        margin-left: 6.4375rem;
+    }
 `;
