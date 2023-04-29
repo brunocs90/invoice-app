@@ -1,3 +1,9 @@
+import { InvoiceContainer } from './styles';
+
 export function InvoiceDetails() {
-    return <div>InvoiceDetailsPage</div>;
+    return (
+        <InvoiceContainer>
+            <h1>Invoice Details Page</h1>
+        </InvoiceContainer>
+    );
 }
