@@ -1,7 +1,10 @@
 import styled from 'styled-components';
 
 export const HomePageContainer = styled.div`
-    width: 100%;
-    height: 100vh;
     border: solid red;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin-bottom: 2rem;
+    flex-grow: 1;
 `;
