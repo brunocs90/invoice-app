@@ -26,13 +26,17 @@ export const HomeHeader = styled.div`
     border: solid red;
 
     .heading {
-        font-size: 1.25rem;
         font-weight: 700;
-        line-height: 1;
-        margin-bottom: 0.4375rem;
+        font-style: normal;
+
+        font-size: 1.25rem;
+        line-height: 22px;
+        letter-spacing: -0.75px;
 
         @media screen and (min-width: ${DEVICE_SIZE.md}) {
             font-size: 2rem;
+            line-height: 33px;
+            letter-spacing: -1.125px;
         }
     }
 
