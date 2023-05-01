@@ -1,10 +1,16 @@
 import styled from 'styled-components';
+import { DEVICE_SIZE } from '../../constants';
 
 export const InvoiceContainer = styled.div`
-    border: solid red;
+    width: 327px;
     display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    margin-bottom: 2rem;
-    width: 100%;
+    justify-content: center;
+    border: solid black;
+
+    @media screen and (min-width: ${DEVICE_SIZE.md}) {
+        width: 672px;
+    }
+    @media screen and (min-width: ${DEVICE_SIZE.lg}) {
+        width: 730px;
+    }
 `;
