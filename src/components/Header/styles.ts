@@ -2,7 +2,6 @@ import styled from 'styled-components';
 import { DEVICE_SIZE } from '../../constants';
 
 export const HeaderContainer = styled.header`
-    /* border: solid yellow; */
     display: flex;
     flex-direction: row;
     background-color: ${({ theme }) => theme.header.bg};
@@ -18,7 +17,6 @@ export const HeaderContainer = styled.header`
         display: flex;
         width: 6.438rem;
         height: 6.438rem;
-        /* border: solid blue; */
         @media screen and (min-width: ${DEVICE_SIZE.lg}) {
             height: auto;
         }
@@ -28,11 +26,26 @@ export const HeaderContainer = styled.header`
         display: flex;
         justify-content: end;
         align-items: center;
-        /* border: solid white; */
+        padding-right: 32px;
 
         @media screen and (min-width: ${DEVICE_SIZE.lg}) {
             height: 100%;
             flex-direction: column;
+            padding-bottom: 32px;
+            padding-right: 0;
+        }
+    }
+
+    .separator {
+        width: 1px;
+        height: 100%;
+        background-color: #494e6e;
+        margin: 0 32px;
+
+        @media screen and (min-width: ${DEVICE_SIZE.lg}) {
+            width: 100%;
+            height: 1px;
+            margin: 32px 0 24px 0;
         }
     }
 `;
