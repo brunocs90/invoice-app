@@ -3,6 +3,7 @@ import { DEVICE_SIZE } from '../../constants';
 
 export const HomePageContainer = styled.div`
     width: 327px;
+    padding-top: 2.625rem;
     display: flex;
     border: solid black;
 
@@ -19,12 +20,12 @@ export const HomeHeader = styled.div`
     height: fit-content;
 
     display: flex;
-    align-items: left;
-    justify-content: center;
-    flex-direction: column;
+    justify-content: space-between;
+    /* border: solid red; */
+`;
 
-    border: solid red;
-
+export const Title = styled.div`
+    border: solid yellow;
     .heading {
         font-weight: 700;
         font-style: normal;
@@ -46,4 +47,9 @@ export const HomeHeader = styled.div`
         color: ${({ theme }) => theme.text.color1};
         letter-spacing: -0.1px;
     }
+`;
+
+export const ItemsAction = styled.div`
+    display: flex;
+    /* border: solid purple; */
 `;
