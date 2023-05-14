@@ -5,6 +5,10 @@ import LayoutDefault from '../layout';
 import { HomeHeader, HomePageContainer, ItemsAction, Title } from './styles';
 
 export function HomePage() {
+    const handleClick = () => {
+        console.log('Botão clicado!');
+    };
+
     return (
         <LayoutDefault>
             <HomePageContainer>
@@ -15,7 +19,7 @@ export function HomePage() {
                     </Title>
                     <ItemsAction>
                         <Filter />
-                        <Button icon={iconPlus} text={'New Invoice'} />
+                        <Button icon={iconPlus} text={'New Invoice'} onClick={handleClick} />
                     </ItemsAction>
                 </HomeHeader>
             </HomePageContainer>
