@@ -5,6 +5,7 @@ export const HomePageContainer = styled.div`
     width: 327px;
     padding-top: 2.625rem;
     display: flex;
+    flex-direction: column;
     border: solid black;
 
     @media screen and (min-width: ${DEVICE_SIZE.md}) {
@@ -21,20 +22,21 @@ export const HomeHeader = styled.div`
 
     display: flex;
     justify-content: space-between;
-    /* border: solid red; */
+    border: solid red;
 `;
 
 export const Title = styled.div`
     border: solid yellow;
     .heading {
-        font-weight: 700;
+        font-weight: 800;
         font-style: normal;
 
-        font-size: 1.25rem;
+        font-size: 24px;
         line-height: 22px;
         letter-spacing: -0.75px;
 
         @media screen and (min-width: ${DEVICE_SIZE.md}) {
+            border: solid red;
             font-size: 2rem;
             line-height: 33px;
             letter-spacing: -1.125px;
@@ -42,14 +44,32 @@ export const Title = styled.div`
     }
 
     .invoicesCount {
-        font-size: 0.75rem;
+        font-style: normal;
         font-weight: 500;
-        color: ${({ theme }) => theme.text.color1};
+
+        font-size: 13px;
+        line-height: 15px;
         letter-spacing: -0.1px;
+
+        color: ${({ theme }) => theme.text.color1};
+        padding-top: 3px;
     }
 `;
 
 export const ItemsAction = styled.div`
     display: flex;
-    /* border: solid purple; */
+    border: solid purple;
+    align-items: center;
+`;
+
+export const ListInvoiceContainer = styled.div`
+    padding-top: 4rem;
+    height: 100%;
+    border: solid red;
+
+    /* Adiciona espaçamento vertical entre os itens
+    o seletor > * + * seleciona todos os elementos filhos diretos (*) que são precedidos por outro elemento (+) dentro do componente */
+    > * + * {
+        margin-top: 1rem;
+    }
 `;
