@@ -5,7 +5,7 @@ export const InvoiceContainer = styled.div`
     width: 327px;
     display: flex;
     justify-content: center;
-    border: solid black;
+    /* border: solid white; */
 
     @media screen and (min-width: ${DEVICE_SIZE.md}) {
         width: 672px;

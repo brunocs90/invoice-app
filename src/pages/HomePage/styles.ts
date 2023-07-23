@@ -6,7 +6,7 @@ export const HomePageContainer = styled.div`
     padding-top: 2.625rem;
     display: flex;
     flex-direction: column;
-    border: solid black;
+    /* border: solid white; */
 
     @media screen and (min-width: ${DEVICE_SIZE.md}) {
         width: 672px;
@@ -22,11 +22,11 @@ export const HomeHeader = styled.div`
 
     display: flex;
     justify-content: space-between;
-    border: solid red;
+    /* border: solid red; */
 `;
 
 export const Title = styled.div`
-    border: solid yellow;
+    /* border: solid yellow; */
     .heading {
         font-weight: 800;
         font-style: normal;
@@ -36,7 +36,7 @@ export const Title = styled.div`
         letter-spacing: -0.75px;
 
         @media screen and (min-width: ${DEVICE_SIZE.md}) {
-            border: solid red;
+            /* border: solid red; */
             font-size: 2rem;
             line-height: 33px;
             letter-spacing: -1.125px;
@@ -58,14 +58,14 @@ export const Title = styled.div`
 
 export const ItemsAction = styled.div`
     display: flex;
-    border: solid purple;
+    /* border: solid purple; */
     align-items: center;
 `;
 
 export const ListInvoiceContainer = styled.div`
     padding-top: 4rem;
     height: 100%;
-    border: solid red;
+    /* border: solid red; */
 
     /* Adiciona espaçamento vertical entre os itens
     o seletor > * + * seleciona todos os elementos filhos diretos (*) que são precedidos por outro elemento (+) dentro do componente */

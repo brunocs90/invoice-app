@@ -1,8 +1,10 @@
 import styled from 'styled-components';
+import { DEVICE_SIZE } from '../../constants';
 
 export const ButtonContainer = styled.button`
     display: flex;
-    height: 48px;
+    width: 90px;
+    height: 44px;
     align-items: center;
 
     border: none;
@@ -20,7 +22,7 @@ export const ButtonContainer = styled.button`
         font-size: 12px;
         font-weight: 700;
         letter-spacing: -0.25px;
-        padding: 1.125rem 1rem 0.938rem 1rem;
+        padding-left: 0.5rem;
 
         color: ${({ theme }) => theme.button.primary.color};
 
@@ -32,5 +34,15 @@ export const ButtonContainer = styled.button`
     .icon-button {
         width: 2rem;
         height: 2rem;
+        margin-left: 4px;
+    }
+
+    @media screen and (min-width: ${DEVICE_SIZE.md}) {
+        width: 150px;
+        height: 48px;
+    }
+    @media screen and (min-width: ${DEVICE_SIZE.lg}) {
+        width: 150px;
+        height: 48px;
     }
 `;
