@@ -62,6 +62,10 @@ export const ItemsAction = styled.div`
     display: flex;
     /* border: solid purple; */
     align-items: center;
+
+    .container-filter {
+        margin-right: 40px;
+    }
 `;
 
 export const ListInvoiceContainer = styled.div`

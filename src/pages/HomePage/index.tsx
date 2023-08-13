@@ -72,7 +72,9 @@ export function HomePage() {
                         <div className="invoicesCount">{isMobile ? '7 invoices' : 'There are 7 total invoices'}</div>
                     </Title>
                     <ItemsAction>
-                        <Filter options={initialFilterOptions} onFilterChange={handleFilterChange} />
+                        <div className="container-filter">
+                            <Filter options={initialFilterOptions} onFilterChange={handleFilterChange} />
+                        </div>
                         <Button icon={iconPlus} text={isMobile ? 'New' : 'New Invoice'} onClick={handleClick} />
                     </ItemsAction>
                 </HomeHeader>
