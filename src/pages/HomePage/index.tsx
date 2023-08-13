@@ -44,14 +44,16 @@ export function HomePage() {
         setFilteredOptions(selectedOptions);
     };
 
-    const handleClick = () => {
-        console.log('Botão clicado!');
-    };
-
     const filteredInvoiceItems =
         filteredOptions.length === 0
             ? invoiceItems
             : invoiceItems.filter(item => filteredOptions.includes(item.status));
+
+    const invoiceCount = filteredInvoiceItems.length;
+
+    const handleClick = () => {
+        console.log('Botão clicado!');
+    };
 
     return (
         <LayoutDefault>
@@ -59,7 +61,9 @@ export function HomePage() {
                 <HomeHeader>
                     <Title>
                         <div className="heading">Invoices</div>
-                        <div className="invoicesCount">{isMobile ? '7 invoices' : 'There are 7 total invoices'}</div>
+                        <div className="invoicesCount">
+                            {isMobile ? `${invoiceCount} invoices` : `There are ${invoiceCount} total invoices`}
+                        </div>
                     </Title>
                     <ItemsAction>
                         <div className="container-filter">
