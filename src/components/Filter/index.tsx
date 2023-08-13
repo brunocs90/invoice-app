@@ -13,7 +13,7 @@ export function Filter({ options, onFilterChange }: FilterProps) {
     const [selectedOptions, setSelectedOptions] = useState<string[]>([]);
     const [currentIcon, setCurrentIcon] = useState(iconArrowUp);
 
-    const filterRef = useRef<HTMLDivElement | null>(null); // Defina o tipo da ref
+    const filterRef = useRef<HTMLDivElement | null>(null);
 
     const toggleFilter = () => {
         setIsMenuOpen(!isMenuOpen);
