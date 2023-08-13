@@ -2,16 +2,12 @@ import { useEffect, useState } from 'react';
 import iconPlus from '../../assets/icon-plus.svg';
 import { Button } from '../../components/Button';
 import { Filter } from '../../components/Filter';
+import { Invoice } from '../../components/Interfaces/Invoice';
 import { InvoiceItem } from '../../components/InvoiceItem';
 import { DEVICE_SIZE } from '../../constants';
+import dataJson from '../../data.json';
 import LayoutDefault from '../layout';
 import { HomeHeader, HomePageContainer, ItemsAction, ListInvoiceContainer, Title } from './styles';
-
-interface Invoice {
-    id: string;
-    status: string;
-    // ... outras propriedades da fatura
-}
 
 const initialFilterOptions = ['Draft', 'Pending', 'Paid'];
 
@@ -33,19 +29,12 @@ export function HomePage() {
     }, []);
 
     useEffect(() => {
-        // Simula carregamento de faturas (use sua lógica real aqui)
         const fetchInvoiceItems = async () => {
-            // Simula carregamento de faturas
-            const fetchedItems: Invoice[] = [
-                { id: 'RT3080', status: 'Paid' },
-                { id: 'XM9141', status: 'Pending' },
-                { id: 'RG0314', status: 'Paid' },
-                { id: 'RT2080', status: 'Pending' },
-                { id: 'AA1449', status: 'Pending' },
-                { id: 'TY9141', status: 'Pending' },
-                { id: 'FV2353', status: 'Draft' },
-            ];
-            setInvoiceItems(fetchedItems);
+            try {
+                setInvoiceItems(dataJson);
+            } catch (error) {
+                console.error('Erro ao carregar faturas:', error);
+            }
         };
 
         fetchInvoiceItems();
@@ -81,7 +70,21 @@ export function HomePage() {
                 </HomeHeader>
                 <ListInvoiceContainer>
                     {filteredInvoiceItems.map(item => (
-                        <InvoiceItem key={item.id} id={item.id} status={item.status} />
+                        <InvoiceItem
+                            key={item.id}
+                            id={item.id}
+                            createdAt={item.createdAt}
+                            paymentDue={item.paymentDue}
+                            description={item.description}
+                            paymentTerms={item.paymentTerms}
+                            clientName={item.clientName}
+                            clientEmail={item.clientEmail}
+                            status={item.status}
+                            senderAddress={item.senderAddress}
+                            clientAddress={item.clientAddress}
+                            items={item.items}
+                            total={item.total}
+                        />
                     ))}
                 </ListInvoiceContainer>
             </HomePageContainer>
