@@ -23,6 +23,8 @@ export const ButtonContainer = styled.button`
         font-weight: 700;
         letter-spacing: -0.25px;
         padding-left: 0.5rem;
+        padding-top: 18px;
+        padding-bottom: 15px;
 
         color: ${({ theme }) => theme.button.primary.color};
 
@@ -34,15 +36,23 @@ export const ButtonContainer = styled.button`
     .icon-button {
         width: 2rem;
         height: 2rem;
-        margin-left: 4px;
+        margin-left: 2px;
     }
 
     @media screen and (min-width: ${DEVICE_SIZE.md}) {
         width: 150px;
         height: 48px;
+
+        .text-button {
+            padding-left: 1rem;
+        }
     }
     @media screen and (min-width: ${DEVICE_SIZE.lg}) {
         width: 150px;
         height: 48px;
+
+        .text-button {
+            padding-left: 1rem;
+        }
     }
 `;

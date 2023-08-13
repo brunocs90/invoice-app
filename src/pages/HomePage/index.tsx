@@ -7,8 +7,18 @@ import { DEVICE_SIZE } from '../../constants';
 import LayoutDefault from '../layout';
 import { HomeHeader, HomePageContainer, ItemsAction, ListInvoiceContainer, Title } from './styles';
 
+interface Invoice {
+    id: number;
+    status: string;
+    // ... outras propriedades da fatura
+}
+
+const initialFilterOptions = ['Draft', 'Pending', 'Paid'];
+
 export function HomePage() {
-    const [isMobile, setIsMobile] = useState(window.innerWidth < parseInt(DEVICE_SIZE.md));
+    const [isMobile, setIsMobile] = useState<boolean>(window.innerWidth < parseInt(DEVICE_SIZE.md));
+    const [filteredOptions, setFilteredOptions] = useState<string[]>([]);
+    const [invoiceItems, setInvoiceItems] = useState<Invoice[]>([]);
 
     useEffect(() => {
         const handleResize = () => {
@@ -22,9 +32,36 @@ export function HomePage() {
         };
     }, []);
 
+    useEffect(() => {
+        // Simula carregamento de faturas (use sua lógica real aqui)
+        const fetchInvoiceItems = async () => {
+            // Simula carregamento de faturas
+            const fetchedItems: Invoice[] = [
+                { id: 1, status: 'Draft' },
+                { id: 2, status: 'Pending' },
+                { id: 3, status: 'Paid' },
+                { id: 4, status: 'Draft' },
+                { id: 5, status: 'Paid' },
+            ];
+
+            setInvoiceItems(fetchedItems);
+        };
+
+        fetchInvoiceItems();
+    }, []);
+
+    const handleFilterChange = (selectedOptions: string[]) => {
+        setFilteredOptions(selectedOptions);
+    };
+
     const handleClick = () => {
         console.log('Botão clicado!');
     };
+
+    const filteredInvoiceItems =
+        filteredOptions.length === 0
+            ? invoiceItems
+            : invoiceItems.filter(item => filteredOptions.includes(item.status));
 
     return (
         <LayoutDefault>
@@ -35,18 +72,14 @@ export function HomePage() {
                         <div className="invoicesCount">{isMobile ? '7 invoices' : 'There are 7 total invoices'}</div>
                     </Title>
                     <ItemsAction>
-                        <Filter />
-                        <Button icon={iconPlus} text={isMobile ? 'New' : 'New Invoices'} onClick={handleClick} />
+                        <Filter options={initialFilterOptions} onFilterChange={handleFilterChange} />
+                        <Button icon={iconPlus} text={isMobile ? 'New' : 'New Invoice'} onClick={handleClick} />
                     </ItemsAction>
                 </HomeHeader>
                 <ListInvoiceContainer>
-                    <InvoiceItem />
-                    <InvoiceItem />
-                    <InvoiceItem />
-                    <InvoiceItem />
-                    <InvoiceItem />
-                    <InvoiceItem />
-                    <InvoiceItem />
+                    {filteredInvoiceItems.map(item => (
+                        <InvoiceItem key={item.id} id={item.id} status={item.status} />
+                    ))}
                 </ListInvoiceContainer>
             </HomePageContainer>
         </LayoutDefault>

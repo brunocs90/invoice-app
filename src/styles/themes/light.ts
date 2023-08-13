@@ -94,8 +94,6 @@ export const lightTheme: DefaultTheme = {
         dropdown: {
             bg: '#FFFFFF',
         },
-    },
-    customRadio: {
         label: {
             color: '#1E2139',
         },
@@ -105,6 +103,9 @@ export const lightTheme: DefaultTheme = {
             borderColor: '#7C5DFA',
         },
         checked: {
+            label: {
+                color: '#1E2139',
+            },
             bg: '#7C5DFA',
             borderColor: '#7C5DFA',
         },

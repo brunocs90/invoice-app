@@ -1,9 +1,19 @@
 import { InvoiceItemContainer } from './styles';
 
-export function InvoiceItem() {
+interface InvoiceItemProps {
+    id: number;
+    status: string;
+    // ... outras propriedades e tipos
+}
+
+export function InvoiceItem({ id, status }: InvoiceItemProps) {
+    // Use id e status normalmente no componente
     return (
         <InvoiceItemContainer>
-            <div>Invoice Item</div>
+            <div>
+                {id}
+                {status}
+            </div>
         </InvoiceItemContainer>
     );
 }

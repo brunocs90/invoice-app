@@ -95,8 +95,6 @@ declare module 'styled-components' {
             dropdown: {
                 bg: string;
             };
-        };
-        customRadio: {
             label: {
                 color: string;
             };
@@ -106,6 +104,9 @@ declare module 'styled-components' {
                 borderColor: string;
             };
             checked: {
+                label: {
+                    color: string;
+                };
                 bg: string;
                 borderColor: string;
             };

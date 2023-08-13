@@ -2,17 +2,19 @@ import styled from 'styled-components';
 import { DEVICE_SIZE } from '../../constants';
 
 export const HomePageContainer = styled.div`
-    width: 327px;
-    padding-top: 2.625rem;
+    width: 420px;
+    padding: 1.5rem 1.5rem 6.5rem 1.5rem;
     display: flex;
     flex-direction: column;
-    /* border: solid white; */
+    border: solid white;
 
     @media screen and (min-width: ${DEVICE_SIZE.md}) {
-        width: 672px;
+        min-width: 720px;
+        padding-top: 3.8rem;
     }
     @media screen and (min-width: ${DEVICE_SIZE.lg}) {
-        width: 730px;
+        min-width: 778px;
+        padding-top: 4.8rem;
     }
 `;
 
@@ -28,7 +30,7 @@ export const HomeHeader = styled.div`
 export const Title = styled.div`
     /* border: solid yellow; */
     .heading {
-        font-weight: 800;
+        font-weight: 700;
         font-style: normal;
 
         font-size: 24px;
