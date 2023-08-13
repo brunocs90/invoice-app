@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import iconArrowDown from '../../assets/icon-arrow-down.svg';
 import iconArrowUp from '../../assets/icon-arrow-up.svg';
 import { CheckboxLabel, FilterButton, FilterContainer, FilterMenu, Icon } from './styles';
@@ -11,7 +11,9 @@ interface FilterProps {
 export function Filter({ options, onFilterChange }: FilterProps) {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [selectedOptions, setSelectedOptions] = useState<string[]>([]);
-    const [currentIcon, setCurrentIcon] = useState(iconArrowUp); // Default to arrow-up icon
+    const [currentIcon, setCurrentIcon] = useState(iconArrowUp);
+
+    const filterRef = useRef<HTMLDivElement | null>(null); // Defina o tipo da ref
 
     const toggleFilter = () => {
         setIsMenuOpen(!isMenuOpen);
@@ -29,11 +31,25 @@ export function Filter({ options, onFilterChange }: FilterProps) {
     };
 
     useEffect(() => {
+        const handleClickOutside = (event: MouseEvent) => {
+            if (filterRef.current && !filterRef.current.contains(event.target as Node)) {
+                setIsMenuOpen(false);
+            }
+        };
+
+        document.addEventListener('mousedown', handleClickOutside);
+
+        return () => {
+            document.removeEventListener('mousedown', handleClickOutside);
+        };
+    }, []);
+
+    useEffect(() => {
         onFilterChange(selectedOptions);
     }, [selectedOptions, onFilterChange]);
 
     return (
-        <FilterContainer>
+        <FilterContainer ref={filterRef}>
             <FilterButton onClick={toggleFilter}>
                 Filter by Status
                 <Icon src={currentIcon} alt="Icon" />
