@@ -64,7 +64,18 @@ export const ItemsAction = styled.div`
     align-items: center;
 
     .container-filter {
-        margin-right: 40px;
+        margin-right: 18px;
+    }
+
+    @media screen and (min-width: ${DEVICE_SIZE.md}) {
+        .container-filter {
+            margin-right: 40px;
+        }
+    }
+    @media screen and (min-width: ${DEVICE_SIZE.lg}) {
+        .container-filter {
+            margin-right: 40px;
+        }
     }
 `;
 
