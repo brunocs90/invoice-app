@@ -8,7 +8,7 @@ import LayoutDefault from '../layout';
 import { HomeHeader, HomePageContainer, ItemsAction, ListInvoiceContainer, Title } from './styles';
 
 interface Invoice {
-    id: number;
+    id: string;
     status: string;
     // ... outras propriedades da fatura
 }
@@ -37,13 +37,14 @@ export function HomePage() {
         const fetchInvoiceItems = async () => {
             // Simula carregamento de faturas
             const fetchedItems: Invoice[] = [
-                { id: 1, status: 'Draft' },
-                { id: 2, status: 'Pending' },
-                { id: 3, status: 'Paid' },
-                { id: 4, status: 'Draft' },
-                { id: 5, status: 'Paid' },
+                { id: 'RT3080', status: 'Paid' },
+                { id: 'XM9141', status: 'Pending' },
+                { id: 'RG0314', status: 'Paid' },
+                { id: 'RT2080', status: 'Pending' },
+                { id: 'AA1449', status: 'Pending' },
+                { id: 'TY9141', status: 'Pending' },
+                { id: 'FV2353', status: 'Draft' },
             ];
-
             setInvoiceItems(fetchedItems);
         };
 

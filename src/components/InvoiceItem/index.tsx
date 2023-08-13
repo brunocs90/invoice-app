@@ -1,7 +1,7 @@
 import { InvoiceItemContainer } from './styles';
 
 interface InvoiceItemProps {
-    id: number;
+    id: string;
     status: string;
     // ... outras propriedades e tipos
 }
