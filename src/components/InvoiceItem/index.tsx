@@ -25,6 +25,7 @@ export function InvoiceItem({ clientName, description, id, paymentDue, status, t
             <DueDate>{formattedDate}</DueDate>
             <ClientName>{clientName}</ClientName>
             <Amount>{formattedTotal}</Amount>
+            <div>Teste</div>
         </Wrapper>
     );
 }
