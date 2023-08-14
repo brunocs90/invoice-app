@@ -32,8 +32,9 @@ export function HomePage() {
         const fetchInvoiceItems = async () => {
             try {
                 setInvoiceItems(dataJson);
+                setFilteredOptions(initialFilterOptions);
             } catch (error) {
-                console.error('Erro ao carregar faturas:', error);
+                console.error('Error loading invoices:', error);
             }
         };
 
@@ -45,14 +46,12 @@ export function HomePage() {
     };
 
     const filteredInvoiceItems =
-        filteredOptions.length === 0
-            ? invoiceItems
-            : invoiceItems.filter(item => filteredOptions.includes(item.status));
+        filteredOptions.length === 0 ? [] : invoiceItems.filter(item => filteredOptions.includes(item.status));
 
     const invoiceCount = filteredInvoiceItems.length;
 
     const handleClick = () => {
-        console.log('Botão clicado!');
+        console.log('Button clicked!');
     };
 
     return (
@@ -73,23 +72,27 @@ export function HomePage() {
                     </ItemsAction>
                 </HomeHeader>
                 <ListInvoiceContainer>
-                    {filteredInvoiceItems.map(item => (
-                        <InvoiceItem
-                            key={item.id}
-                            id={item.id}
-                            createdAt={item.createdAt}
-                            paymentDue={item.paymentDue}
-                            description={item.description}
-                            paymentTerms={item.paymentTerms}
-                            clientName={item.clientName}
-                            clientEmail={item.clientEmail}
-                            status={item.status}
-                            senderAddress={item.senderAddress}
-                            clientAddress={item.clientAddress}
-                            items={item.items}
-                            total={item.total}
-                        />
-                    ))}
+                    {filteredInvoiceItems.length === 0 ? (
+                        <div className="empty-message">No invoices found.</div>
+                    ) : (
+                        filteredInvoiceItems.map(item => (
+                            <InvoiceItem
+                                key={item.id}
+                                id={item.id}
+                                createdAt={item.createdAt}
+                                paymentDue={item.paymentDue}
+                                description={item.description}
+                                paymentTerms={item.paymentTerms}
+                                clientName={item.clientName}
+                                clientEmail={item.clientEmail}
+                                status={item.status}
+                                senderAddress={item.senderAddress}
+                                clientAddress={item.clientAddress}
+                                items={item.items}
+                                total={item.total}
+                            />
+                        ))
+                    )}
                 </ListInvoiceContainer>
             </HomePageContainer>
         </LayoutDefault>

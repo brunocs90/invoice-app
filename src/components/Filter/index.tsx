@@ -11,7 +11,7 @@ interface FilterProps {
 
 export function Filter({ options, onFilterChange }: FilterProps) {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
-    const [selectedOptions, setSelectedOptions] = useState<string[]>([]);
+    const [selectedOptions, setSelectedOptions] = useState<string[]>(options);
     const [currentIcon, setCurrentIcon] = useState(iconArrowUp);
 
     const filterRef = useRef<HTMLDivElement | null>(null);
