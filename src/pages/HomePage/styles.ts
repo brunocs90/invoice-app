@@ -6,7 +6,7 @@ export const HomePageContainer = styled.div`
     padding: 1.5rem 1.5rem 6.5rem 1.5rem;
     display: flex;
     flex-direction: column;
-    border: solid white;
+    /* border: solid white; */
 
     @media screen and (min-width: ${DEVICE_SIZE.md}) {
         min-width: 720px;

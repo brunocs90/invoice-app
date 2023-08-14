@@ -1,45 +1,30 @@
+import { format } from 'date-fns';
 import { Invoice } from '../Interfaces/Invoice';
-import { InvoiceItemContainer } from './styles';
 
-export function InvoiceItem({
-    id,
-    createdAt,
-    paymentDue,
-    description,
-    paymentTerms,
-    clientName,
-    clientEmail,
-    status,
-    senderAddress,
-    clientAddress,
-    items,
-    total,
-}: Invoice) {
+import { Amount, ClientName, DueDate, InvoiceID, Wrapper } from './styles';
+
+export function InvoiceItem({ clientName, description, id, paymentDue, status, total }: Invoice) {
+    const formattedDate = formatDate(paymentDue);
+    const formattedTotal = formatPrice(total);
+
+    function formatDate(date: string) {
+        const dueDate = new Date(date);
+        return format(dueDate, "'Due' d MMM yyyy");
+    }
+
+    function formatPrice(amount: number) {
+        return new Intl.NumberFormat('en-US', {
+            style: 'currency',
+            currency: 'GBP',
+        }).format(amount);
+    }
+
     return (
-        <InvoiceItemContainer>
-            <div className="id">{id}</div>
-            <div className="createdAt">{createdAt}</div>
-            <div className="paymentDue">{paymentDue}</div>
-            <div className="description">{description}</div>
-            <div className="paymentTerms">{paymentTerms}</div>
-            <div className="clientName">{clientName}</div>
-            <div className="clientEmail">{clientEmail}</div>
-            <div className="status">{status}</div>
-            <div className="senderAddress">
-                {senderAddress.street}, {senderAddress.city}, {senderAddress.postCode}, {senderAddress.country}
-            </div>
-            <div className="clientAddress">
-                {clientAddress.street}, {clientAddress.city}, {clientAddress.postCode}, {clientAddress.country}
-            </div>
-            <div className="items">
-                {items.map((item, index) => (
-                    <div key={index}>
-                        Item {index + 1}: {item.name}, Quantity: {item.quantity}, Price: {item.price}, Total:{' '}
-                        {item.total}
-                    </div>
-                ))}
-            </div>
-            <div className="total">{total}</div>
-        </InvoiceItemContainer>
+        <Wrapper to={id} aria-label={`${description} - ${clientName} - View Invoice`}>
+            <InvoiceID>{id}</InvoiceID>
+            <DueDate>{formattedDate}</DueDate>
+            <ClientName>{clientName}</ClientName>
+            <Amount>{formattedTotal}</Amount>
+        </Wrapper>
     );
 }

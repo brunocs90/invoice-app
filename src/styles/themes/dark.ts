@@ -102,11 +102,11 @@ export const darkTheme: DefaultTheme = {
             bg: '#252945',
         },
         label: {
-            color: '#DFE3FA',
+            color: '#FFFFFF',
         },
         checked: {
             label: {
-                color: '#DFE3FA',
+                color: '#FFFFFF',
             },
             bg: '#7C5DFA',
             borderColor: '#7C5DFA',

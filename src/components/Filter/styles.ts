@@ -49,7 +49,6 @@ export const Icon = styled.img`
 
 export const FilterMenu = styled.div`
     ${fontStyling}
-    color: ${({ theme }) => theme.filterDropdown.label.color};
 
     width: 192px;
     height: 128px;
@@ -63,6 +62,7 @@ export const FilterMenu = styled.div`
     left: -25%;
     display: ${({ open }: { open: boolean }) => (open ? 'block' : 'none')};
     transition: box-shadow 0.2s;
+    z-index: 1;
 
     ${FilterButton}:hover + & {
         box-shadow: 0px 10px 20px 0px rgba(0, 0, 0, 0.35);

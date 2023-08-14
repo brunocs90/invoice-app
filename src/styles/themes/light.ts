@@ -102,11 +102,11 @@ export const lightTheme: DefaultTheme = {
             bg: '#FFFFFF',
         },
         label: {
-            color: '#1E2139',
+            color: '#0C0E16',
         },
         checked: {
             label: {
-                color: '#1E2139',
+                color: '#0C0E16',
             },
             bg: '#7C5DFA',
             borderColor: '#7C5DFA',
