@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import iconArrowDown from '../../assets/icon-arrow-down.svg';
 import iconArrowUp from '../../assets/icon-arrow-up.svg';
-import { CheckIcon } from './checkIcon';
+import { CheckIcon } from './CheckIcon';
 import { CheckboxLabel, FilterButton, FilterContainer, FilterMenu, Icon } from './styles';
 
 interface FilterProps {
