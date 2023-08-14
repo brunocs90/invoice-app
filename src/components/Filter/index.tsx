@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import iconArrowDown from '../../assets/icon-arrow-down.svg';
 import iconArrowUp from '../../assets/icon-arrow-up.svg';
+import { CheckIcon } from './checkIcon';
 import { CheckboxLabel, FilterButton, FilterContainer, FilterMenu, Icon } from './styles';
 
 interface FilterProps {
@@ -57,13 +58,14 @@ export function Filter({ options, onFilterChange }: FilterProps) {
             <FilterMenu open={isMenuOpen}>
                 {options.map((option, index) => (
                     <CheckboxLabel key={index}>
+                        {selectedOptions.includes(option) ? <CheckIcon /> : <></>}
                         <input
+                            className="checkbox"
                             type="checkbox"
                             checked={selectedOptions.includes(option)}
                             onChange={() => handleCheckboxChange(option)}
                         />
-                        <span></span>
-                        {option}
+                        <span className="checkbox-text">{option}</span>
                     </CheckboxLabel>
                 ))}
             </FilterMenu>

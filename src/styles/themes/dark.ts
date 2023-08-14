@@ -91,16 +91,18 @@ export const darkTheme: DefaultTheme = {
         draft: '#DFE3FA',
     },
     filterDropdown: {
+        input: {
+            bg: '#DFE3FA',
+            borderColor: '#DFE3FA',
+            hover: {
+                borderColor: '#7C5DFA',
+            },
+        },
         dropdown: {
             bg: '#252945',
         },
         label: {
             color: '#DFE3FA',
-        },
-        bg: '#DFE3FA',
-        borderColor: '#DFE3FA',
-        hover: {
-            borderColor: '#7C5DFA',
         },
         checked: {
             label: {

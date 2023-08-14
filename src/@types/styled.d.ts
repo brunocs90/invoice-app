@@ -92,16 +92,18 @@ declare module 'styled-components' {
             draft: string;
         };
         filterDropdown: {
+            input: {
+                bg: string;
+                borderColor: string;
+                hover: {
+                    borderColor: string;
+                };
+            };
             dropdown: {
                 bg: string;
             };
             label: {
                 color: string;
-            };
-            bg: string;
-            borderColor: string;
-            hover: {
-                borderColor: string;
             };
             checked: {
                 label: {
